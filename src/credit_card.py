@@ -1,4 +1,4 @@
-class ClassCard:
+class CreditCard:
 
   def __init__(self, customer, bank, acnt, limit):
     self._customer = customer
