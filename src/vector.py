@@ -1,5 +1,7 @@
 class Vector:
 
+  #super simple addition of 4 coords
+
   def __init__(self, d):
     self._coords = [0] * d
 
