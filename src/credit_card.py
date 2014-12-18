@@ -31,3 +31,4 @@ class CreditCard:
 
   def make_payment(self, amount):
     self._balance -= amount
+
