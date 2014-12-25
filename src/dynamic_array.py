@@ -37,3 +37,13 @@ class DynamicArray:
     def _make_array(self, c):
         """Return new array with capacity c."""
         return (c * ctypes.py_object)()
+
+    def insert(self, k, value):
+        """Insert value at index k, shifting subsequent values rightward"""
+        #for simplicity, assume 0 <= k <= n in this version
+        if self._n == self.capacity:
+            self._resize(2 * self._capacity)
+        for j in range(self._n, k, -1):
+            self._A[j] = self._A[j-1]
+        self._A[k] = value
+        self._n += 1
