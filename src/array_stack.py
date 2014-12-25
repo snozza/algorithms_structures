@@ -41,3 +41,17 @@ def reverse_file(filename):
     while not S.is_empty():
         output.write(S.pop() + '\n')
     output.close()
+
+def is_matched(expr):
+    lefty = '({['
+    righty = ')}]'
+    S = ArrayStack()
+    for c in expr:
+        if c in lefty:
+            S.push(c)
+        elif c in righty:
+            if S.is_empty():
+                return False
+            if right.index(c) != left.index(S.pop()):
+                return False
+    return S.is_empty()
