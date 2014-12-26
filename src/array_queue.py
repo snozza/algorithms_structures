@@ -29,3 +29,21 @@ class ArrayQueue:
         self._front = (self._front + 1) % len(self._data)
         self._size -= 1
         return answer
+
+    def enqueue(self, e):
+        """Add an element to the back of queue"""
+        if self._size == len(self._data):
+            self._resize(2 * len(self.data)) #double the array _size
+        avail = (self._front + self._size) % len(self._data)
+        self._data[avail] = e
+        self._size += 1
+
+    def _resize(self, cap):
+        """Resize to a new list of capacity >= len(self)"""
+        old = self._data
+        self._data = [None] * cap
+        walk = self._front
+        for k in range(self._size):
+            self._data[k] = old[walk]
+            walk = (1 + walk) % len(old)
+        self._front = 0
