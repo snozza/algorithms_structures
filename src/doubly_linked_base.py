@@ -121,5 +121,44 @@ class PositionalList(_DoublyLinkedBase):
         node = self._validate(p)
         return self._make_position(node._prev)
 
+    def after(self, p):
+        node = self._validate(p)
+        return self._make_position(node._next)
+
+    def __iter__(self):
+        cursor = self.first()
+        while cursor is not None:
+            yield cursor.element()
+            cursor = self.after(cursor)
+
+    #-------------------mutators-------------------
+    def _insert_between(self, e, predecessor, successor):
+        node = super()._insert_between(e, predecessor, succesor)
+        return self._make_position(node)
+
+    def add_first(self, e):
+        return self._insert_between(e, self._trailer._prev, self._trailer)
+
+    def add_last(self, e):
+        return self._insert_between(e, self._trailer._prev, self._trailer)
+
+    def add_before(self, p, e):
+        original = self._validate(p)
+        return self._insert_between(e, original._prev, original)
+
+    def add_after(self, p, e):
+        original = self._validate(p)
+        return self._insert_between(e, original, original._next)
+
+    def delete(self, p):
+        original = self._validate(p)
+        return self._delete_node(original)
+
+    def replace(self, p, e):
+        original = self._validate(p)
+        old_value = original._element
+        original._element = e
+        return old_value
+
 
 
