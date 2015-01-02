@@ -1,6 +1,4 @@
-from doubly_linked_base import _DoublyLinkedBase
-from doubly_linked_base import PositionalList
-import inspect
+from ..src/doubly_linked_base import _DoublyLinkedBase
 
 def insertion_sort(L):
     """Sort PositionalList of comparable elements into nondecreasing order"""
@@ -18,7 +16,4 @@ def insertion_sort(L):
             L.delete(pivot)
             L.add_before(walk, value)
 
-
-theList = PositionalList()
-theList.add_first('1');
-print(theList)
+print(insertion_sort([3, 4, 9, 2]))

@@ -133,7 +133,7 @@ class PositionalList(_DoublyLinkedBase):
 
     #-------------------mutators-------------------
     def _insert_between(self, e, predecessor, successor):
-        node = super()._insert_between(e, predecessor, succesor)
+        node = super()._insert_between(e, predecessor, successor)
         return self._make_position(node)
 
     def add_first(self, e):
@@ -159,6 +159,9 @@ class PositionalList(_DoublyLinkedBase):
         old_value = original._element
         original._element = e
         return old_value
+
+well = PositionalList()
+well.add_first('1')
 
 
 
