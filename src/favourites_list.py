@@ -2,6 +2,7 @@ from doubly_linked_base import PositionalList
 
 class FavouritesList:
     """List of elements ordered from most frequently accessed to least"""
+    """Using a PositionalList"""
 
     #-----------nested _Item class----------------
     class _Item:
