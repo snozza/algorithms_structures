@@ -1,5 +1,5 @@
 class Tree:
-    """Abstract base class represneting a tree structure"""
+    """Abstract base class representing a tree structure"""
 
     #------------nested Position class-----------
     class Position:
