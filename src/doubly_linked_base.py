@@ -30,7 +30,6 @@ class _DoublyLinkedBase:
         return newest
 
     def _delete_node(self, node):
-        #delete nonsentinel node from list and return element
         predecessor = node._prev
         successor = node._next
         predecessor._next = successor
@@ -71,9 +70,9 @@ class LinkedDeque(_DoublyLinkedBase):
         return self._delete_node(self._trailer._prev)
 
 class PositionalList(_DoublyLinkedBase):
-    """sequential container of elements allowing positional access"""
+
     class Position:
-        """An abstraction representing location of single element"""
+
         def __init__(self, container, node):
             """Constructor should not be invoked by user"""
             self._container = container
